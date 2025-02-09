@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-gray-900">
+
+    <h1 class="text-3xl font-bold mb-6">🔊 Text to Speech Converter</h1>
+
+    <form id="ttsForm" class="bg-white p-6 rounded-lg shadow-md w-96">
+        <textarea id="text" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400" 
+                  placeholder="Enter text here..."></textarea>
+
+        <button type="submit" id="convertBtn" 
+                class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 hover:bg-blue-600 transition">
+            Convert to Speech
+        </button>
+
+        <p id="loading" class="text-blue-600 text-sm mt-2 hidden">⏳ Processing... Please wait</p>
+    </form>
+
+    <div id="audio-container" class="hidden mt-6 text-center">
+        <h3 class="text-lg font-semibold">Generated Speech</h3>
+        <audio id="audioPlayer" controls class="mt-2"></audio>
+        <br>
+        <a id="downloadLink" download="speech.mp3">
+            <button class="mt-4 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition">
+                Download MP3
+            </button>
+        </a>
+    </div>
+
+    <script>
+        document.getElementById("ttsForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let text = document.getElementById("text").value;
+            let convertBtn = document.getElementById("convertBtn");
+            let loadingText = document.getElementById("loading");
+
+            if (!text.trim()) {
+                alert("Please enter text before converting.");
+                return;
+            }
+
+            // Show loading, disable button
+            convertBtn.disabled = true;
+            convertBtn.classList.add("bg-gray-400", "cursor-not-allowed");
+            loadingText.classList.remove("hidden");
+
+            let formData = new FormData();
+            formData.append("text", text);
+
+            fetch("/tts", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.blob())
+            .then(blob => {
+                let audioUrl = URL.createObjectURL(blob);
+                let audioPlayer = document.getElementById("audioPlayer");
+                let downloadLink = document.getElementById("downloadLink");
+
+                // Hide loading, enable button
+                loadingText.classList.add("hidden");
+                convertBtn.disabled = false;
+                convertBtn.classList.remove("bg-gray-400", "cursor-not-allowed");
+
+                // Update UI with audio
+                audioPlayer.src = audioUrl;
+                downloadLink.href = audioUrl;
+                document.getElementById("audio-container").classList.remove("hidden");
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Something went wrong. Please try again.");
+                loadingText.classList.add("hidden");
+                convertBtn.disabled = false;
+                convertBtn.classList.remove("bg-gray-400", "cursor-not-allowed");
+            });
+        });
+    </script>
+
+</body>
+</html>
+

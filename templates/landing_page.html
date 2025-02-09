@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KasukuTSS - Welcome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+        }
+        .container {
+            max-width: 700px;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background: white;
+            color: #2575fc;
+            padding: 12px 25px;
+            font-size: 1.3em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #ddd;
+        }
+        .features {
+            margin-top: 20px;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .features ul {
+            list-style: none;
+        }
+        .features li::before {
+            content: "✔";
+            color: #0f0;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to KasukuTSS 🎙️</h1>
+        <p>Transform text into realistic speech with ease. KasukuTSS is a simple yet powerful text-to-speech converter.</p>
+        <a href="/app" class="btn">Get Started</a>
+        <div class="features">
+            <h2>Why Use KasukuTSS?</h2>
+            <ul>
+                <li>🎤 Converts text into high-quality speech</li>
+                <li>📂 Download MP3 files instantly</li>
+                <li>💡 Simple and easy-to-use interface</li>
+                <li>🌍 Supports multiple languages</li>
+                <li>🚀 Fast and reliable processing</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
