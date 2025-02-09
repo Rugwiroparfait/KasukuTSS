@@ -1,91 +1,73 @@
-# KasukuTSS
-# KasukuTSS 🎙️
+# KasukuTSS 🎙️  
 
-KasukuTSS is a simple web-based Text-to-Speech (TTS) application that converts text input into an audio file (MP3). It uses Flask for the backend and gTTS (Google Text-to-Speech) to generate speech from text. The frontend allows users to enter text and play the generated audio.
+🚀 **Live Demo**: [KasukuTSS on Render](https://kasukutss.onrender.com/)  
 
-## 🚀 Features
-- Convert text into an MP3 file
-- Simple and lightweight UI
-- Free and open-source
-- Deployable on free platforms like Render, Railway, and GitHub Pages
+## 📌 Overview  
+KasukuTSS is a **text-to-speech (TTS)** application that converts text into high-quality speech and allows users to download the audio as an MP3 file. Built using **Flask** and **gTTS**, it provides a simple and fast way to generate speech from text.  
 
-## 📌 Tech Stack
-- **Backend:** Flask, gTTS
-- **Frontend:** HTML, CSS, JavaScript
-- **Hosting:** Render / Railway (Backend), GitHub Pages / Vercel (Frontend)
+## ✨ Features  
+✅ **Realistic Speech Output** – Converts text into natural-sounding speech  
+✅ **Instant MP3 Download** – Download the generated audio file easily  
+✅ **Simple UI** – Clean, modern, and user-friendly interface  
+✅ **Fast Processing** – Get speech output in seconds  
+✅ **Web-based** – No need to install software, just visit the website  
 
-## 📦 Installation
+## 🖥️ Tech Stack  
+- **Backend**: Flask, gTTS  
+- **Frontend**: HTML, CSS, JavaScript  
+- **Hosting**: Render  
 
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/your-username/KasukuTSS.git
-cd KasukuTSS
-```
+## 🔥 How to Use  
+1. Visit [KasukuTSS](https://kasukutss.onrender.com/)  
+2. Enter the text you want to convert  
+3. Click on the **Convert** button  
+4. Download the generated MP3 file  
+  
 
-### 2️⃣ Install Dependencies
-Make sure you have Python installed.
-```bash
-pip install -r requirements.txt
-```
-
-### 3️⃣ Run the Flask Server
-```bash
-python app.py
-```
-
-The API will be available at `http://127.0.0.1:5000/`
-
-## 🖥️ Usage
-### API Endpoint: `POST /tts`
-#### Request:
-- **Form Data:** `text` (string) - The text to convert
-
-#### Example (Using `curl`):
-```bash
-curl -X POST -F "text=Hello, KasukuTSS!" http://127.0.0.1:5000/tts --output output.mp3
-```
-
-#### Response:
-- Returns an MP3 audio file.
-
-## 🌍 Deployment
-### Deploy Flask API (Backend)
-#### Option 1: Deploy on Render
-1. Push your code to GitHub
-2. Go to [Render](https://render.com/)
-3. Click **New Web Service** → Connect GitHub Repository
-4. Set the **start command**:
+## 📦 Installation (For Local Development)  
+1. **Clone the repository**  
    ```bash
-   gunicorn app:app
-   ```
-5. Deploy 🎉
+   git clone https://github.com/Rugwiroparfait/KasukuTSS.git
+   cd KasukuTSS
 
-#### Option 2: Deploy on Railway
-1. Go to [Railway](https://railway.app/)
-2. Click **New Project** → Deploy from GitHub
-3. Set **Start Command**: `gunicorn app:app`
-4. Deploy 🎉
 
-### Deploy Frontend (HTML, JS)
-#### Option 1: GitHub Pages
-1. Upload `index.html` to a GitHub repo
-2. Enable **GitHub Pages** in repo settings
-3. Your frontend will be live 🎉
+2.  **Create a virtual environment**
+    
+    bash
+    
+    CopyEdit
+    
+    `python3 -m venv venv
+    source venv/bin/activate   # On Windows use: venv\Scripts\activate` 
+    
+3.  **Install dependencies**
+    
+    bash
+    
+    CopyEdit
+    
+    `pip install -r requirements.txt` 
+    
+4.  **Run the app**
+    
+    bash
+    
+    CopyEdit
+    
+    `python app.py` 
+    
+5.  **Visit** `http://127.0.0.1:5000/` in your browser
 
-#### Option 2: Vercel / Netlify
-1. Push your frontend code to GitHub
-2. Deploy using [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/)
+## 🤝 Contributing
 
-## 📜 License
-KasukuTSS is open-source and available under the **MIT License**.
+Feel free to open an issue or submit a pull request to improve KasukuTSS!
 
-## 🙌 Contributing
-Feel free to submit issues, feature requests, or pull requests to improve KasukuTSS!
+## 📞 Contact
 
-## ⭐ Acknowledgments
-- Powered by **Flask** & **gTTS**
-- Inspired by the need for free and simple TTS tools
+📧 **Email:** rugwiroparfait003@gmail.com  
+🔗 **Website:** [www.rugwiroparfait.com](https://rugwiroparfait.github.io/portifolio/)  
+🐦 **Twitter:** [@RugwiroParfait](https://twitter.com/RugwiroParfiat)
 
----
-💡 **KasukuTSS** - Bringing text to life with speech! 🎤
+----------
 
+Made with ❤️ by **Rugwiro Parfait**
